@@ -1,0 +1,32 @@
+.main {
+    text-align: center;
+
+    &__container {
+        display: inline-block;
+        width: 80%;
+        padding: 20px 0;
+    }
+
+    &__adding-icon {
+        font-size: 60px;
+
+        &:hover,
+        &:active {
+            color: gray;
+            transform: scale(1.1);
+            transition: .1s ease;
+            cursor: pointer;
+        }
+    }
+
+    &__adding-link {
+        display: block;
+        color: blue;
+
+        &:hover,
+        &:active {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

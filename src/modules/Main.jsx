@@ -1,9 +1,13 @@
 import React from 'react';
 
+import PreAddArticle from '../components/PreAddArticle';
+
 const Main = () => {
     return (
-        <main>
-            
+        <main className="main">
+            <div className="main__container">
+                <PreAddArticle />
+            </div>
         </main>
     )
 }

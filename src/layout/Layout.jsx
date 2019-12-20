@@ -6,6 +6,7 @@ import Footer from '../modules/Footer';
 
 import '../styles/index.scss';
 import '../styles/header.scss';
+import '../styles/main.scss';
 import '../styles/footer.scss';
 
 const Layout = () => {
