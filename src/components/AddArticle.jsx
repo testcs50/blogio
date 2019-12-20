@@ -4,7 +4,7 @@ import { Form, Input, Button } from 'antd';
 
 const { TextArea } = Input;
 
-const AddArticle = () => {
+const AddArticle = props => {
 
     const formItemLayout = {
         labelCol: { span: 4 },
@@ -12,9 +12,15 @@ const AddArticle = () => {
     }
 
     return (
-        <div className="main__adding-form-shadow">
+        <div
+            className="main__adding-form-shadow"
+            onClick={ props.toggleViewAddForm }
+        >
             <div className="main__adding-form-wrapper">
-                <span className="main__close-adding-form">
+                <span
+                    className="main__close-adding-form"
+                    onClick={ props.toggleViewAddForm }
+                >
                     Закрыть
                 </span>
                 <Form className="main__adding-form" layout='horizontal'>
