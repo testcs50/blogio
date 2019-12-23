@@ -1,10 +1,11 @@
 import React from 'react';
 
-const PreBlogArticle = () => {
+const PreBlogArticle = props => {
     return (
-        <footer>
-            Powered for aptitude test
-        </footer>
+        <div className="main__article-previewer">
+            <h2 className="main__article-title-previewer">{ props.title }</h2>
+            <div className="main__article-text-previewer">{ props.text }</div>
+        </div>
     )
 }
 

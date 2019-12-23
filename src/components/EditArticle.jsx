@@ -3,27 +3,24 @@ import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 const { TextArea } = Input;
 
-const AddArticle = props => {
+const EditArticle = props => {
 
     const [ inputValues, setInputValues ] = useState({
-        id: 0,
-        title: '',
-        text: '',
-        comments: []
-    })
+        id: props.id,
+        title: props.title,
+        text: props.text,
+        comments: props.comments
+    });
 
     const handleFormSubmit = () => {
-        const storage = JSON.parse(localStorage.getItem('articles')).data;
-        const lastId = (
-            storage.length
-            ?
-            (() => storage.sort((a, b) => a.id - b.id)[storage.length - 1].id + 1)()
-            :
-            0
-        );
+        props.handleChangeStorage(param => {
+            const storage = [...param];
+            const indexOfArticle = storage.indexOf(storage.find(obj => obj.id === props.id));
+            storage[indexOfArticle] = inputValues;
+            return storage;
+        });
 
-        props.handleChangeStorage(param => [...param, {...inputValues, id: lastId}]);
-        props.toggleViewAddForm();
+        props.toggleViewEditForm();
     }
 
     const handleChangeInput = event => {
@@ -33,17 +30,20 @@ const AddArticle = props => {
         });
     }
 
-    const formItemLayout = {labelCol: {span: 4},  wrapperCol: {span: 8}}
+    const formItemLayout = {
+        labelCol: { span: 4 },
+        wrapperCol: { span: 16 },
+    }
 
     return (
         <div
             className="main__adding-form-shadow"
-            onClick={ props.toggleViewAddForm }
+            onClick={ props.toggleViewEditForm }
         >
             <div className="main__adding-form-wrapper">
                 <span
                     className="main__close-adding-form"
-                    onClick={ props.toggleViewAddForm }
+                    onClick={ props.toggleViewEditForm }
                 >
                     Close
                 </span>
@@ -58,6 +58,7 @@ const AddArticle = props => {
                             placeholder="Article title"
                             name="title"
                             onChange={ handleChangeInput }
+                            value={ inputValues.title }
                         />
                     </Form.Item>
                     <Form.Item label="Text:" { ...formItemLayout }>
@@ -66,6 +67,7 @@ const AddArticle = props => {
                             autoSize={{ minRows: 3 }}
                             name="text"
                             onChange={ handleChangeInput }
+                            value={ inputValues.text }
                         />
                     </Form.Item>
                     <Form.Item>
@@ -82,4 +84,4 @@ const AddArticle = props => {
     )
 }
 
-export default AddArticle;
+export default EditArticle;

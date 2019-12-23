@@ -4,13 +4,11 @@ import { Icon } from 'antd';
 
 import AddArticle from './AddArticle';
 
-const PreAddArticle = () => {
+const PreAddArticle = ({ handleChangeStorage }) => {
 
     const [ viewAddForm, setViewAddForm ] = useState(false);
 
-    const toggleViewAddForm = () => {
-        setViewAddForm(!viewAddForm);
-    }
+    const toggleViewAddForm = () => setViewAddForm(!viewAddForm);
 
     return (
         <div className="main__adding-wrapper">
@@ -25,7 +23,14 @@ const PreAddArticle = () => {
             >
                 Add new article
             </span>
-            { viewAddForm && <AddArticle toggleViewAddForm={ toggleViewAddForm } /> }
+            {
+                viewAddForm
+                &&
+                <AddArticle
+                    toggleViewAddForm={ toggleViewAddForm }
+                    handleChangeStorage={ handleChangeStorage }
+                />
+            }
         </div>
     )
 }
