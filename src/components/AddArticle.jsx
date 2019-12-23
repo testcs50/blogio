@@ -33,7 +33,7 @@ const AddArticle = props => {
         });
     }
 
-    const formItemLayout = {labelCol: {span: 4},  wrapperCol: {span: 8}}
+    const formItemLayout = {labelCol: {span: 4},  wrapperCol: {span: 16}}
 
     return (
         <div
