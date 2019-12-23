@@ -195,10 +195,12 @@ body {
     }
 
     &__article-comments {
+        margin-top: 30px;
         text-align: left;
     }
 
-    &__article-title {
+    &__article-title,
+    &____article-add-comment-h4 {
         text-align: center;
     }
 

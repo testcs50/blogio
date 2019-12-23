@@ -53,7 +53,7 @@ const Comments = props => {
             { props.comments.length ? comments : <h6>No comments yet</h6> }
 
             <Form className="main__comment-form" layout='horizontal'>
-                <h4>Add a comment:</h4>
+                <h4 className="main__article-add-comment-h4">Add a comment:</h4>
                 <Form.Item label="Name:" { ...formItemLayout }>
                     <Input
                         placeholder="Your Name"
